@@ -1,28 +1,58 @@
 /**
- * Write a description of class Player here.
+ * Creates a Player, sets rounds and score, and prints stats
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Nathan Roller -02254188 
+ * @version Feb. 11, 2016
  */
 public class Player
 {
     // instance variables
     private String name;
-    
-    
-    private static int rounds;
-    private static int score;
+    private int rounds;
+    private int score;
+    private double roundAverage;
 
     public Player(String inName)
     {
         name = inName;
+        rounds++;
+        score++;
     }
     
-    public void setRounds(int rounds)
+    public void setRounds(int startRounds)
     {
+        rounds = startRounds;
     }
     
-    public void setScore(int score)
+    public int getRounds()
     {
+        return rounds;
+    }
+    
+    public int getScore()
+    {
+        return score;
+    }
+    
+    public double roundAverage()
+    {
+        roundAverage = (double) score / rounds;
+        return roundAverage;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public void setScore(int startScore)
+    {
+        score = startScore;
+    }
+    
+    public void playerStats()
+    {
+        System.out.println("    " + name + " ---> # Rounds: " + rounds + ", Score: " + score + 
+        ", Round Average: " + roundAverage());
     }
 }
