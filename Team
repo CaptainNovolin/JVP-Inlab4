@@ -1,9 +1,8 @@
-
 /**
- * Write a description of class Team here.
+ * Creates a team and prints team stats
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Nathan Roller -02254188 
+ * @version Feb. 11 2016
  */
 public class Team
 {
@@ -13,6 +12,9 @@ public class Team
     private Player player2;
     private Player player3;
     private Player player4;
+    private int totalRounds;
+    private int totalScore;
+    private double teamAverage;
     
     public Team(String inName, Player inPlayer1, Player inPlayer2, Player inPlayer3, Player inPlayer4)
     {
@@ -23,13 +25,36 @@ public class Team
         player4 = inPlayer4;
     }
     
-    public String getName()
+    public int totalRounds()
     {
-        return name;
+        totalRounds = (player1.getRounds() + player2.getRounds() + player3.getRounds() 
+        + player4.getRounds());
+        return totalRounds;
+    }
+    
+    public int totalScore()
+    {
+        totalScore = (player1.getScore() + player2.getScore() + player3.getScore() + 
+        player4.getScore());
+        return totalScore;
+    }
+    
+    public double teamAverage()
+    {
+        teamAverage = (double) totalScore() / totalRounds();
+        return teamAverage;
     }
     
     public void printStats()
     {
-        System.out.println(t1.getName());
+        System.out.println(name + ":");
+        System.out.println("  Number of Rounds: " + totalRounds());
+        System.out.println("  Total Score: " + totalScore());
+        System.out.println("  Round Average: " + teamAverage());
+        System.out.println("  Players: ");
+        player1.playerStats();
+        player2.playerStats();
+        player3.playerStats();
+        player4.playerStats();
     }
 }
